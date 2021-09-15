@@ -22,7 +22,7 @@ ENV TERM xterm
 WORKDIR /opt/cups
 
 # Install CUPS/AVAHI
-RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools jbigkit
+RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools
 
 # Install jbigkit
 COPY Filters/pstoricohddst-gdi /usr/lib/cups/filter
