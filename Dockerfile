@@ -15,7 +15,7 @@ LABEL version="1.3"
 LABEL description="Creates an Alpine container serving a CUPS instance accessible through airplay as well"
 
 # Set environment
-ENV LANG en_US.UTF-8
+ENV LANG en_GB.UTF-8
 ENV TERM xterm
 
 # Set workdir
@@ -23,6 +23,10 @@ WORKDIR /opt/cups
 
 # Install CUPS/AVAHI
 RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools
+
+# Install jbigkit
+RUN apk add --no-cache jbigkit
+COPY Filters/pstoricohddst-gdi /usr/lib/cups/filter
 
 # Copy configuration files
 COPY root /
