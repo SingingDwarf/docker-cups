@@ -25,6 +25,10 @@ WORKDIR /opt/cups
 RUN apk update --no-cache && apk add --no-cache cups cups-filters avahi inotify-tools
 
 # Install jbigkit
+RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+  jbigkit
+
+# Install filter
 COPY Filters/pstoricohddst-gdi /usr/lib/cups/filter
 RUN chmod 755 /usr/lib/cups/filter/pstoricohddst-gdi
 
